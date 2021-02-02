@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">AndroidCalc</string>
+    <string name="StrTextIn">Text IN 09876454</string>
+    <string name="ButC">C</string>
+    <string name="ButOpenS">(</string>
+    <string name="ButCloseS">)</string>
+    <string name="ButDiv">\u00F7</string>
+    <string name="ButMulti">\u00D7</string>
+    <string name="ButPlus">+</string>
+    <string name="ButMinus">-</string>
+    <string name="ButEqual">=</string>
+    <string name="ButPercent">%</string>
+    <string name="ButOne">1</string>
+    <string name="ButTwo">2</string>
+    <string name="ButThree">3</string>
+    <string name="ButFour">4</string>
+    <string name="ButFive">5</string>
+    <string name="ButSix">6</string>
+    <string name="ButSeven">7</string>
+    <string name="ButEight">8</string>
+    <string name="ButNine">9</string>
+    <string name="ButZero">0</string>
+    <string name="ButPoint">,</string>
+
+
 </resources>

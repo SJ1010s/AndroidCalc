@@ -6,13 +6,489 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@drawable/android_calc_image" />
+
+    <EditText
+        android:id="@+id/textIn"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="450dp"
+        android:background="@drawable/calc_text_view_shape"
+        android:text="@string/StrTextIn"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintWidth_percent="0.75"
+       />
+
+    <TextView
+        android:id="@+id/textAnawer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/calc_text_view_shape"
+        android:gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Answer!"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        app:layout_constraintBottom_toTopOf="@+id/textIn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/ButtonC"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButC"
+        android:textColor="@color/white"
+
+
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textIn"
+        app:layout_constraintRight_toLeftOf="@id/ButtonOpenS"
+        app:layout_constraintBottom_toTopOf="@id/ButtonOne"/>
+
+    <Button
+        android:id="@+id/ButtonOpenS"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButOpenS"
+        android:textColor="@color/white"
+
+
+        android:textSize="30sp"
+        app:layout_constraintLeft_toRightOf="@id/ButtonC"
+        app:layout_constraintTop_toTopOf="@id/ButtonC"
+        app:layout_constraintRight_toLeftOf="@id/ButtonCloseS"/>
+
+    <Button
+        android:id="@+id/ButtonCloseS"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButCloseS"
+        android:textColor="@color/white"
+
+
+        android:textSize="30sp"
+        app:layout_constraintLeft_toRightOf="@id/ButtonOpenS"
+        app:layout_constraintTop_toTopOf="@id/ButtonC"
+        app:layout_constraintRight_toLeftOf="@id/ButtonDiv"/>
+    <Button
+        android:id="@+id/ButtonDiv"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButDiv"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toRightOf="@id/ButtonCloseS"
+        app:layout_constraintTop_toTopOf="@id/ButtonC"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
+        android:id="@+id/ButtonBack"
+
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+
+        android:background="@android:drawable/ic_input_delete"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:textColor="@color/white"
+
+
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="@id/textIn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintWidth_percent="0.16"/>
+
+
+    <Button
+        android:id="@+id/ButtonOne"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButOne"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonC"
+        app:layout_constraintTop_toBottomOf="@id/ButtonC"
+        app:layout_constraintBottom_toTopOf="@id/ButtonFour"/>
+
+    <Button
+        android:id="@+id/ButtonTwo"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButTwo"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonOpenS"
+        app:layout_constraintTop_toTopOf="@id/ButtonOne" />
+    <Button
+        android:id="@+id/ButtonThree"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButThree"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonCloseS"
+        app:layout_constraintTop_toTopOf="@id/ButtonOne" />
+
+    <Button
+        android:id="@+id/ButtonMulti"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButMulti"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonDiv"
+        app:layout_constraintTop_toTopOf="@id/ButtonOne" />
+
+
+    <Button
+        android:id="@+id/ButtonFour"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButFour"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonOne"
+        app:layout_constraintTop_toBottomOf="@id/ButtonOne"
+        app:layout_constraintBottom_toTopOf="@id/ButtonSeven"/>
+
+    <Button
+        android:id="@+id/ButtonFive"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButFive"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonOpenS"
+        app:layout_constraintTop_toTopOf="@id/ButtonFour" />
+
+    <Button
+        android:id="@+id/ButtonSix"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButSix"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonCloseS"
+        app:layout_constraintTop_toTopOf="@id/ButtonFour" />
+
+    <Button
+        android:id="@+id/ButtonMinus"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButMinus"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonDiv"
+        app:layout_constraintTop_toTopOf="@id/ButtonFour"/>
+
+
+
+    <Button
+        android:id="@+id/ButtonSeven"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButSeven"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonC"
+        app:layout_constraintTop_toBottomOf="@id/ButtonFour"
+        app:layout_constraintBottom_toTopOf="@id/ButtonPercent"/>
+
+    <Button
+        android:id="@+id/ButtonEight"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButEight"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonOpenS"
+        app:layout_constraintTop_toTopOf="@id/ButtonSeven" />
+
+    <Button
+        android:id="@+id/ButtonNine"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButNine"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonCloseS"
+        app:layout_constraintTop_toTopOf="@id/ButtonSeven" />
+
+    <Button
+        android:id="@+id/ButtonPlus"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButPlus"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonDiv"
+        app:layout_constraintTop_toTopOf="@id/ButtonSeven"/>
+
+
+
+    <Button
+        android:id="@+id/ButtonPercent"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButPercent"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonC"
+        app:layout_constraintTop_toBottomOf="@id/ButtonSeven"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/ButtonZero"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButZero"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonOpenS"
+        app:layout_constraintTop_toTopOf="@id/ButtonPercent" />
+    <Button
+        android:id="@+id/ButtonPoint"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButPoint"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonCloseS"
+        app:layout_constraintTop_toTopOf="@id/ButtonPercent" />
+
+    <Button
+        android:id="@+id/ButtonEqual"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:background="@drawable/custom_button"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/ButEqual"
+        android:textColor="@color/white"
+
+
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonDiv"
+        app:layout_constraintTop_toTopOf="@id/ButtonPercent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
