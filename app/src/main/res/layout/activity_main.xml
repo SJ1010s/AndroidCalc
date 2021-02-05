@@ -25,7 +25,6 @@
         android:layout_marginEnd="@dimen/view_margin_start.end"
         android:layout_marginBottom="450dp"
         android:background="@drawable/calc_text_view_shape"
-        android:text="@string/StrTextIn"
         android:textSize="@dimen/text_size_in"
         android:gravity="center"
         android:textColor="@color/white"
