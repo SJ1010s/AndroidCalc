@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_height">80dp</dimen>
+    <dimen name="button_width">80dp</dimen>
+    <dimen name="button_margin">10dp</dimen>
+    <dimen name="button_back_height">60dp</dimen>
+    <dimen name="button_back_margin_start">10dp</dimen>
+    <dimen name="button_back_margin_end">15dp</dimen>
+    <dimen name="text_size_in">30sp</dimen>
+    <dimen name="text_size_answer">30sp</dimen>
+    <dimen name="text_size_button_one">30sp</dimen>
+    <dimen name="text_size_button_two">40sp</dimen>
+    <dimen name="text_size_button_div">40sp</dimen>
+    <dimen name="view_margin_start.end">10dp</dimen>
+
+</resources>
