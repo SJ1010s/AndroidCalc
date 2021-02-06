@@ -5,22 +5,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.BaseInputConnection;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText textIn;
+    private static EditText textIn;
+    BaseInputConnection textFieldInputConnection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         initImage();
         initTextIn();
+        textFieldInputConnection = new BaseInputConnection(textIn, true);
         keyboardOff();
         initButtonOne();
         initButtonTwo();
@@ -32,11 +37,25 @@ public class MainActivity extends AppCompatActivity {
         initButtonEight();
         initButtonNine();
         initButtonZero();
+        initButtonPoint();
+        initButtonPlus();
+        initButtonMinus();
+        initButtonMulti();
+        initButtonDiv();
+        initButtonBack();
+        initButtonOpenS();
+        initButtonCloseS();
+
+
 
     }
 
     private void initTextIn(){
         textIn = findViewById(R.id.textIn);
+    }
+
+    public static EditText getTextIn(){
+        return textIn;
     }
 
     private void initImage() {
@@ -53,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initButtonOne(){
-        Button buttonOne = findViewById(R.id.ButtonOne);
-        buttonOne.setOnClickListener(new View.OnClickListener() {
+        Button button = findViewById(R.id.ButtonOne);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 textIn.append("1");
@@ -63,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initButtonTwo(){
-        Button buttonOne = findViewById(R.id.ButtonTwo);
-        buttonOne.setOnClickListener(new View.OnClickListener() {
+        Button button = findViewById(R.id.ButtonTwo);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 textIn.append("2");
@@ -73,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initButtonThree(){
-        Button buttonOne = findViewById(R.id.ButtonThree);
-        buttonOne.setOnClickListener(new View.OnClickListener() {
+        Button button = findViewById(R.id.ButtonThree);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 textIn.append("3");
@@ -83,8 +102,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initButtonFour(){
-        Button buttonOne = findViewById(R.id.ButtonFour);
-        buttonOne.setOnClickListener(new View.OnClickListener() {
+        Button button = findViewById(R.id.ButtonFour);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 textIn.append("4");
@@ -93,8 +112,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initButtonFive(){
-        Button buttonOne = findViewById(R.id.ButtonFive);
-        buttonOne.setOnClickListener(new View.OnClickListener() {
+        Button button = findViewById(R.id.ButtonFive);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 textIn.append("5");
@@ -103,8 +122,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initButtonSix(){
-        Button buttonOne = findViewById(R.id.ButtonSix);
-        buttonOne.setOnClickListener(new View.OnClickListener() {
+        Button button = findViewById(R.id.ButtonSix);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 textIn.append("6");
@@ -113,8 +132,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initButtonSeven(){
-        Button buttonOne = findViewById(R.id.ButtonSeven);
-        buttonOne.setOnClickListener(new View.OnClickListener() {
+        Button button = findViewById(R.id.ButtonSeven);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 textIn.append("7");
@@ -123,8 +142,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initButtonEight(){
-        Button buttonOne = findViewById(R.id.ButtonEight);
-        buttonOne.setOnClickListener(new View.OnClickListener() {
+        Button button = findViewById(R.id.ButtonEight);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 textIn.append("8");
@@ -133,8 +152,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initButtonNine(){
-        Button buttonOne = findViewById(R.id.ButtonNine);
-        buttonOne.setOnClickListener(new View.OnClickListener() {
+        Button button = findViewById(R.id.ButtonNine);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 textIn.append("9");
@@ -143,11 +162,92 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initButtonZero(){
-        Button buttonOne = findViewById(R.id.ButtonZero);
-        buttonOne.setOnClickListener(new View.OnClickListener() {
+        Button button = findViewById(R.id.ButtonZero);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 textIn.append("0");
+            }
+        });
+    }
+
+    private void initButtonPoint(){
+        Button button = findViewById(R.id.ButtonPoint);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textIn.append(".");
+            }
+        });
+    }
+
+    private void initButtonPlus(){
+        Button button = findViewById(R.id.ButtonPlus);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textIn.append("+");
+            }
+        });
+    }
+
+    private void initButtonMinus(){
+        Button button = findViewById(R.id.ButtonMinus);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textIn.append("-");
+            }
+        });
+    }
+
+    private void initButtonMulti(){
+        Button button = findViewById(R.id.ButtonMulti);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textIn.append("*");
+            }
+        });
+    }
+
+    private void initButtonDiv(){
+        Button button = findViewById(R.id.ButtonDiv);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textIn.append("/");
+            }
+        });
+    }
+
+    private void initButtonOpenS(){
+        Button button = findViewById(R.id.ButtonOpenS);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textIn.append("(");
+            }
+        });
+    }
+
+
+    private void initButtonCloseS(){
+        Button button = findViewById(R.id.ButtonCloseS);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textIn.append(")");
+            }
+        });
+    }
+
+    private void initButtonBack(){
+        Button button = findViewById(R.id.ButtonBack);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textFieldInputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL));
             }
         });
     }
