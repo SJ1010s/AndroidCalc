@@ -11,9 +11,10 @@ public class CalcHandler {
     private static final String TOKENS_OF_MAIN_NUMBERS = "()";
     private static final String TOKENS_OF_NUMBERS = "/*+-";
     private static final String TOKEN_OF_OPERANDS = "0123456789.";
+    private MainActivity mainActivity = new MainActivity();
 
-    public static String getTextIn() {
-        return MainActivity.getTextIn().getText().toString();
+    public String getTextIn() {
+        return mainActivity.getTextIn().getText().toString();
     }
 
     public void setArrayMainNumbers() {
