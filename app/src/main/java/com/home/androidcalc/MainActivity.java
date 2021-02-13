@@ -1,7 +1,9 @@
 package com.home.androidcalc;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,22 +12,22 @@ import android.view.View;
 import android.view.inputmethod.BaseInputConnection;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ImageSet {
 
+    private Save save;
     private static EditText textIn;
     BaseInputConnection textFieldInputConnection;
+    private final String KEY_PARCEL_IMAGE = "IMAGE";
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initImage();
         initTextIn();
-        textFieldInputConnection = new BaseInputConnection(textIn, true);
         keyboardOff();
         initButtonOne();
         initButtonTwo();
@@ -45,10 +47,19 @@ public class MainActivity extends AppCompatActivity {
         initButtonBack();
         initButtonOpenS();
         initButtonCloseS();
+        initSettingButton();
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        save = savedInstanceState.getParcelable(KEY_PARCEL_IMAGE);
+        initImage();
     }
 
     private void initTextIn() {
         textIn = findViewById(R.id.textIn);
+        textFieldInputConnection = new BaseInputConnection(textIn, true);
     }
 
     public EditText getTextIn() {
@@ -56,8 +67,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initImage() {
-        ImageView imageView = findViewById(R.id.imageView);
-        imageView.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.android_calc_image));
+        imageView = findViewById(R.id.image_view_main);
+        imageSet(save.getTypeOfImage());
+    }
+
+    @Override
+    public void imageSet(int numberOfImage) {
+        if (numberOfImage == standartImage){
+            imageView.setImageResource(R.drawable.android_calc_image);
+        } else if (numberOfImage == darkImage){
+            imageView.setImageResource(R.drawable.android_calc_image_black);
+        }
     }
 
     private void keyboardOff() {
@@ -245,6 +265,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textFieldInputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL));
+            }
+        });
+    }
+
+    private void initSettingButton(){
+        Button button = findViewById(R.id.button_setting);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startActivitySetting = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(startActivitySetting);
             }
         });
     }

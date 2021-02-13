@@ -21,6 +21,8 @@
     <string name="ButNine">9</string>
     <string name="ButZero">0</string>
     <string name="ButPoint">,</string>
+    <string name="standart_theme">Стандартная тема</string>
+    <string name="black_theme">Черная тема</string>
 
 
 </resources>
