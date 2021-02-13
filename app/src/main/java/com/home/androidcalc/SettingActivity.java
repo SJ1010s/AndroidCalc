@@ -13,7 +13,6 @@ import android.widget.RadioGroup;
 public class SettingActivity extends AppCompatActivity implements ImageSet {
     ImageView imageView;
     private final String KEY_PARCEL_IMAGE = "IMAGE";
-    private Save save;
     RadioGroup radioGroup;
 
     @Override
@@ -21,9 +20,6 @@ public class SettingActivity extends AppCompatActivity implements ImageSet {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         imageView = findViewById(R.id.image_view_main);
-        if (savedInstanceState == null) {
-            save = new Save();
-        }
 
         initButtonStandartTheme();
         initButtonDarkTheme();
@@ -36,18 +32,6 @@ public class SettingActivity extends AppCompatActivity implements ImageSet {
 
     }
 
-//    @Override
-//    protected void onSaveInstanceState(@NonNull Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//        outState.putParcelable(KEY_PARCEL_IMAGE, save);
-//    }
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        save = savedInstanceState.getParcelable(KEY_PARCEL_IMAGE);
-        imageSet(save.getTypeOfImage());
-    }
 
     private void initButtonStandartTheme() {
         RadioButton radioButton = findViewById(R.id.button_standart_theme);
