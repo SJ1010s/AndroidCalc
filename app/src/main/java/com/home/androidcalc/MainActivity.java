@@ -12,6 +12,7 @@ import android.view.inputmethod.BaseInputConnection;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements ImageSet {
 
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
     BaseInputConnection textFieldInputConnection;
     ImageView imageView;
     SharedPreferences getSetting;
+    CalcHandler calcHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
         setContentView(R.layout.activity_main);
         getSetting = getSharedPreferences(KEY_SETTING, MODE_PRIVATE);
 
+        calcHandler = new CalcHandler();
         initTextIn();
         keyboardOff();
         initButtonOne();
@@ -47,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
         initButtonOpenS();
         initButtonCloseS();
         initSettingButton();
+
     }
 
 
@@ -55,8 +59,10 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
         textFieldInputConnection = new BaseInputConnection(textIn, true);
     }
 
-    public EditText getTextIn() {
-        return textIn;
+    private void initTextAnswer(){
+        TextView textAnswer = findViewById(R.id.textAnawer);
+        calcHandler.setTextIn(textIn.getText().toString());
+        textAnswer.setText(calcHandler.sendAnswer());
     }
 
     private void initImage() {
@@ -208,6 +214,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
             @Override
             public void onClick(View v) {
                 textIn.append("+");
+                initTextAnswer();
             }
         });
     }

@@ -1,5 +1,7 @@
 package com.home.androidcalc;
 
+import android.content.Intent;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -11,10 +13,20 @@ public class CalcHandler {
     private static final String TOKENS_OF_MAIN_NUMBERS = "()";
     private static final String TOKENS_OF_NUMBERS = "/*+-";
     private static final String TOKEN_OF_OPERANDS = "0123456789.";
-    private MainActivity mainActivity = new MainActivity();
+    private String textIn = "0";
+
+   public void setTextIn(String textIn){
+       this.textIn = textIn;
+   }
 
     public String getTextIn() {
-        return mainActivity.getTextIn().getText().toString();
+        return textIn;
+    }
+
+    public String sendAnswer(){
+       String textAnswer;
+       textAnswer = String.valueOf(plus(getTextIn().split("\\+")));
+       return textAnswer;
     }
 
     public void setArrayMainNumbers() {
@@ -43,7 +55,7 @@ public class CalcHandler {
             } else if (numbers.contains("/")) {
                 answer += div(numbers.split("/"));
             } else {
-                answer = Double.parseDouble(numbers);
+                answer += Double.parseDouble(numbers);
             }
         }
         return answer;
