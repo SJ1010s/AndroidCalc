@@ -65,6 +65,12 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        initImage();
+    }
+
+    @Override
     public void imageSet(int numberOfImage) {
         if (numberOfImage == STANDART_IMAGE) {
             imageView.setImageResource(R.drawable.android_calc_image);
