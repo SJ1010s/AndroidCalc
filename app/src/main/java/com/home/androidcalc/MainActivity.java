@@ -1,10 +1,9 @@
 package com.home.androidcalc;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.BitmapFactory;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -16,16 +15,16 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity implements ImageSet {
 
-    private Save save;
     private static EditText textIn;
     BaseInputConnection textFieldInputConnection;
-    private final String KEY_PARCEL_IMAGE = "IMAGE";
     ImageView imageView;
+    SharedPreferences getSetting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSetting = getSharedPreferences(KEY_SETTING, MODE_PRIVATE);
 
         initTextIn();
         keyboardOff();
@@ -50,12 +49,6 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
         initSettingButton();
     }
 
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        save = savedInstanceState.getParcelable(KEY_PARCEL_IMAGE);
-        initImage();
-    }
 
     private void initTextIn() {
         textIn = findViewById(R.id.textIn);
@@ -68,16 +61,21 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
 
     private void initImage() {
         imageView = findViewById(R.id.image_view_main);
-        imageSet(save.getTypeOfImage());
+        imageSet(getSettingImage());
     }
 
     @Override
     public void imageSet(int numberOfImage) {
-        if (numberOfImage == standartImage){
+        if (numberOfImage == STANDART_IMAGE) {
             imageView.setImageResource(R.drawable.android_calc_image);
-        } else if (numberOfImage == darkImage){
+        } else if (numberOfImage == DARK_IMAGE) {
             imageView.setImageResource(R.drawable.android_calc_image_black);
         }
+    }
+
+    @Override
+    public int getSettingImage() {
+        return getSetting.getInt(KEY_IMAGE, STANDART_IMAGE);
     }
 
     private void keyboardOff() {
@@ -269,7 +267,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
         });
     }
 
-    private void initSettingButton(){
+    private void initSettingButton() {
         Button button = findViewById(R.id.button_setting);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
