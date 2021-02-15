@@ -2,7 +2,8 @@ package com.home.androidcalc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.BitmapFactory;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -10,22 +11,27 @@ import android.view.View;
 import android.view.inputmethod.BaseInputConnection;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ImageSet, TokenableCalc {
 
     private static EditText textIn;
     BaseInputConnection textFieldInputConnection;
+    ImageView imageView;
+    SharedPreferences getSetting;
+    CalcHandler calcHandler;
+    TextView textAnswer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSetting = getSharedPreferences(KEY_SETTING, MODE_PRIVATE);
 
-        initImage();
+        calcHandler = new CalcHandler();
         initTextIn();
-        textFieldInputConnection = new BaseInputConnection(textIn, true);
+        initTextAnswer();
         keyboardOff();
         initButtonOne();
         initButtonTwo();
@@ -45,19 +51,64 @@ public class MainActivity extends AppCompatActivity {
         initButtonBack();
         initButtonOpenS();
         initButtonCloseS();
+        initButtonEquals();
+        initSettingButton();
+
     }
+
 
     private void initTextIn() {
         textIn = findViewById(R.id.textIn);
+        textFieldInputConnection = new BaseInputConnection(textIn, true);
     }
 
-    public EditText getTextIn() {
-        return textIn;
+    private boolean isOperand(){
+        if(textIn.getText().toString().contains("+")) return true;
+        else if(textIn.getText().toString().contains("-")) return true;
+        else if(textIn.getText().toString().contains("/")) return true;
+        else if(textIn.getText().toString().contains("*")) return true;
+        else return false;
+    }
+
+    private void initTextAnswer(){
+        textAnswer = findViewById(R.id.textAnawer);
+    }
+
+    private void startCurrentTextAnswer(){
+        if(isOperand()) {
+            calcHandler.setTextIn(textIn.getText().toString());
+            textAnswer.setText(calcHandler.sendCurrentAnswer());
+        }
+    }
+
+    private void startAnswer(){
+        calcHandler.setTextIn(textIn.getText().toString());
+        textAnswer.setText(calcHandler.sendAnswer());
     }
 
     private void initImage() {
-        ImageView imageView = findViewById(R.id.imageView);
-        imageView.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.android_calc_image));
+        imageView = findViewById(R.id.image_view_main);
+        imageSet(getSettingImage());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initImage();
+    }
+
+    @Override
+    public void imageSet(int numberOfImage) {
+        if (numberOfImage == STANDART_IMAGE) {
+            imageView.setImageResource(R.drawable.android_calc_image);
+        } else if (numberOfImage == DARK_IMAGE) {
+            imageView.setImageResource(R.drawable.android_calc_image_black);
+        }
+    }
+
+    @Override
+    public int getSettingImage() {
+        return getSetting.getInt(KEY_IMAGE, STANDART_IMAGE);
     }
 
     private void keyboardOff() {
@@ -74,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textIn.append("1");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -84,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textIn.append("2");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -94,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textIn.append("3");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -104,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textIn.append("4");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -114,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textIn.append("5");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -124,6 +180,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textIn.append("6");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -134,6 +191,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textIn.append("7");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -144,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textIn.append("8");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -154,6 +213,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textIn.append("9");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -164,6 +224,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textIn.append("0");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -244,7 +305,29 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                textIn.requestFocus();
                 textFieldInputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL));
+            }
+        });
+    }
+
+    private void initButtonEquals(){
+        Button button = findViewById(R.id.ButtonEqual);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startAnswer();
+            }
+        });
+    }
+
+    private void initSettingButton() {
+        Button button = findViewById(R.id.button_setting);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startActivitySetting = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(startActivitySetting);
             }
         });
     }
