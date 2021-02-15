@@ -45,16 +45,13 @@ public class MainActivity extends AppCompatActivity {
         initButtonBack();
         initButtonOpenS();
         initButtonCloseS();
-
-
-
     }
 
-    private void initTextIn(){
+    private void initTextIn() {
         textIn = findViewById(R.id.textIn);
     }
 
-    public static EditText getTextIn(){
+    public EditText getTextIn() {
         return textIn;
     }
 
@@ -71,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void initButtonOne(){
+    private void initButtonOne() {
         Button button = findViewById(R.id.ButtonOne);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initButtonTwo(){
+    private void initButtonTwo() {
         Button button = findViewById(R.id.ButtonTwo);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initButtonThree(){
+    private void initButtonThree() {
         Button button = findViewById(R.id.ButtonThree);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initButtonFour(){
+    private void initButtonFour() {
         Button button = findViewById(R.id.ButtonFour);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initButtonFive(){
+    private void initButtonFive() {
         Button button = findViewById(R.id.ButtonFive);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initButtonSix(){
+    private void initButtonSix() {
         Button button = findViewById(R.id.ButtonSix);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initButtonSeven(){
+    private void initButtonSeven() {
         Button button = findViewById(R.id.ButtonSeven);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initButtonEight(){
+    private void initButtonEight() {
         Button button = findViewById(R.id.ButtonEight);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initButtonNine(){
+    private void initButtonNine() {
         Button button = findViewById(R.id.ButtonNine);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initButtonZero(){
+    private void initButtonZero() {
         Button button = findViewById(R.id.ButtonZero);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -171,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initButtonPoint(){
+    private void initButtonPoint() {
         Button button = findViewById(R.id.ButtonPoint);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initButtonPlus(){
+    private void initButtonPlus() {
         Button button = findViewById(R.id.ButtonPlus);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initButtonMinus(){
+    private void initButtonMinus() {
         Button button = findViewById(R.id.ButtonMinus);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -201,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initButtonMulti(){
+    private void initButtonMulti() {
         Button button = findViewById(R.id.ButtonMulti);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -211,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initButtonDiv(){
+    private void initButtonDiv() {
         Button button = findViewById(R.id.ButtonDiv);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -221,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initButtonOpenS(){
+    private void initButtonOpenS() {
         Button button = findViewById(R.id.ButtonOpenS);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -232,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void initButtonCloseS(){
+    private void initButtonCloseS() {
         Button button = findViewById(R.id.ButtonCloseS);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -242,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initButtonBack(){
+    private void initButtonBack() {
         Button button = findViewById(R.id.ButtonBack);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

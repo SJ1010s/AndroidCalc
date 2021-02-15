@@ -12,9 +12,11 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:srcCompat="@drawable/android_calc_image" />
 
     <EditText
@@ -25,468 +27,381 @@
         android:layout_marginEnd="@dimen/view_margin_start.end"
         android:layout_marginBottom="450dp"
         android:background="@drawable/calc_text_view_shape"
-        android:textSize="@dimen/text_size_in"
         android:gravity="center"
-        android:textColor="@color/white"
+        android:inputType="none"
         android:shadowColor="@color/black"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:inputType="none"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintWidth_percent="0.75"
-       />
+        app:layout_constraintWidth_percent="0.75" />
 
     <TextView
         android:id="@+id/textAnawer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/calc_text_view_shape"
-        android:gravity="center"
         android:layout_marginStart="@dimen/view_margin_start.end"
         android:layout_marginEnd="@dimen/view_margin_start.end"
-        android:text="Answer!"
-        android:textSize="@dimen/text_size_answer"
-        android:textColor="@color/white"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/calc_text_view_shape"
+        android:gravity="center"
         android:shadowColor="@color/black"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
+        android:text="Answer!"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_answer"
         app:layout_constraintBottom_toTopOf="@+id/textIn"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="10dp"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonC"
-
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
-        android:layout_marginTop="@dimen/button_margin"
+        android:layout_marginTop="10dp"
 
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButC"
         android:textColor="@color/white"
-
-
-
         android:textSize="@dimen/text_size_button_one"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textIn"
-        app:layout_constraintRight_toLeftOf="@id/ButtonOpenS"
-        app:layout_constraintBottom_toTopOf="@id/ButtonOne"/>
 
-    <Button
+        android:theme="@style/MyMaterialButton"
+        app:layout_constraintBottom_toTopOf="@id/ButtonOne"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/ButtonOpenS"
+        app:layout_constraintTop_toBottomOf="@id/textIn" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonOpenS"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
 
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
+        android:layout_height="@dimen/button_height"
         android:text="@string/ButOpenS"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_one"
-        app:layout_constraintLeft_toRightOf="@id/ButtonC"
-        app:layout_constraintTop_toTopOf="@id/ButtonC"
-        app:layout_constraintRight_toLeftOf="@id/ButtonCloseS"/>
 
-    <Button
+        android:theme="@style/MyMaterialButton"
+        app:layout_constraintLeft_toRightOf="@id/ButtonC"
+        app:layout_constraintRight_toLeftOf="@id/ButtonCloseS"
+        app:layout_constraintTop_toTopOf="@id/ButtonC" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonCloseS"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
 
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
+        android:layout_height="@dimen/button_height"
         android:text="@string/ButCloseS"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_one"
+
+        android:theme="@style/MyMaterialButton"
         app:layout_constraintLeft_toRightOf="@id/ButtonOpenS"
-        app:layout_constraintTop_toTopOf="@id/ButtonC"
-        app:layout_constraintRight_toLeftOf="@id/ButtonDiv"/>
-    <Button
+        app:layout_constraintRight_toLeftOf="@id/ButtonDiv"
+        app:layout_constraintTop_toTopOf="@id/ButtonC" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonDiv"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
 
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
+        android:layout_height="@dimen/button_height"
         android:text="@string/ButDiv"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_div"
-        app:layout_constraintLeft_toRightOf="@id/ButtonCloseS"
-        app:layout_constraintTop_toTopOf="@id/ButtonC"
-        app:layout_constraintRight_toRightOf="parent"/>
 
-    <Button
+        android:theme="@style/MyMaterialButton"
+        app:layout_constraintLeft_toRightOf="@id/ButtonCloseS"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ButtonC" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonBack"
 
         android:layout_width="0dp"
         android:layout_height="@dimen/button_back_height"
         android:layout_marginStart="@dimen/button_back_margin_start"
+
         android:layout_marginEnd="@dimen/button_back_margin_end"
-
         android:background="@android:drawable/ic_input_delete"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_one"
-        app:layout_constraintTop_toTopOf="@id/textIn"
+
+        android:theme="@style/Theme.AppCompat.Light"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintWidth_percent="0.16"/>
+        app:layout_constraintTop_toTopOf="@id/textIn"
+        app:layout_constraintWidth_percent="0.16" />
 
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonOne"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
+
         android:layout_height="@dimen/button_height"
-
-
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButOne"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_two"
-        app:layout_constraintLeft_toLeftOf="@id/ButtonC"
-        app:layout_constraintTop_toBottomOf="@id/ButtonC"
-        app:layout_constraintBottom_toTopOf="@id/ButtonFour"/>
 
-    <Button
+        android:theme="@style/MyMaterialButton"
+        app:layout_constraintBottom_toTopOf="@id/ButtonFour"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonC"
+        app:layout_constraintTop_toBottomOf="@id/ButtonC" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonTwo"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
+
         android:layout_height="@dimen/button_height"
-
-
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButTwo"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_two"
+
+        android:theme="@style/MyMaterialButton"
         app:layout_constraintLeft_toLeftOf="@id/ButtonOpenS"
         app:layout_constraintTop_toTopOf="@id/ButtonOne" />
-    <Button
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonThree"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
+
+
         android:layout_height="@dimen/button_height"
-
-
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButThree"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_two"
+
+        android:theme="@style/MyMaterialButton"
         app:layout_constraintLeft_toLeftOf="@id/ButtonCloseS"
         app:layout_constraintTop_toTopOf="@id/ButtonOne" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonMulti"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
+
+
         android:layout_height="@dimen/button_height"
-
-
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButMulti"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_two"
+
+        android:theme="@style/MyMaterialButton"
         app:layout_constraintLeft_toLeftOf="@id/ButtonDiv"
         app:layout_constraintTop_toTopOf="@id/ButtonOne" />
 
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonFour"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
+
+
         android:layout_height="@dimen/button_height"
-
-
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButFour"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_two"
-        app:layout_constraintLeft_toLeftOf="@id/ButtonOne"
-        app:layout_constraintTop_toBottomOf="@id/ButtonOne"
-        app:layout_constraintBottom_toTopOf="@id/ButtonSeven"/>
 
-    <Button
+        android:theme="@style/MyMaterialButton"
+        app:layout_constraintBottom_toTopOf="@id/ButtonSeven"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonOne"
+        app:layout_constraintTop_toBottomOf="@id/ButtonOne" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonFive"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
+
+
         android:layout_height="@dimen/button_height"
-
-
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButFive"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_two"
+
+        android:theme="@style/MyMaterialButton"
         app:layout_constraintLeft_toLeftOf="@id/ButtonOpenS"
         app:layout_constraintTop_toTopOf="@id/ButtonFour" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonSix"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
+
+
         android:layout_height="@dimen/button_height"
-
-
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButSix"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_two"
+
+        android:theme="@style/MyMaterialButton"
         app:layout_constraintLeft_toLeftOf="@id/ButtonCloseS"
         app:layout_constraintTop_toTopOf="@id/ButtonFour" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonMinus"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
+
+
         android:layout_height="@dimen/button_height"
-
-
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButMinus"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_two"
+
+        android:theme="@style/MyMaterialButton"
         app:layout_constraintLeft_toLeftOf="@id/ButtonDiv"
-        app:layout_constraintTop_toTopOf="@id/ButtonFour"/>
+        app:layout_constraintTop_toTopOf="@id/ButtonFour" />
 
 
-
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonSeven"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
+
+
         android:layout_height="@dimen/button_height"
-
-
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButSeven"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_two"
-        app:layout_constraintLeft_toLeftOf="@id/ButtonC"
-        app:layout_constraintTop_toBottomOf="@id/ButtonFour"
-        app:layout_constraintBottom_toTopOf="@id/ButtonPercent"/>
 
-    <Button
+        android:theme="@style/MyMaterialButton"
+        app:layout_constraintBottom_toTopOf="@id/ButtonPercent"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonC"
+        app:layout_constraintTop_toBottomOf="@id/ButtonFour" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonEight"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
+
+
         android:layout_height="@dimen/button_height"
-
-
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButEight"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_two"
+
+        android:theme="@style/MyMaterialButton"
         app:layout_constraintLeft_toLeftOf="@id/ButtonOpenS"
         app:layout_constraintTop_toTopOf="@id/ButtonSeven" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonNine"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
+
+
         android:layout_height="@dimen/button_height"
 
-
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButNine"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_two"
+
+        android:theme="@style/MyMaterialButton"
         app:layout_constraintLeft_toLeftOf="@id/ButtonCloseS"
         app:layout_constraintTop_toTopOf="@id/ButtonSeven" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonPlus"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
+
+
         android:layout_height="@dimen/button_height"
-
-
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButPlus"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_two"
+
+        android:theme="@style/MyMaterialButton"
         app:layout_constraintLeft_toLeftOf="@id/ButtonDiv"
-        app:layout_constraintTop_toTopOf="@id/ButtonSeven"/>
+        app:layout_constraintTop_toTopOf="@id/ButtonSeven" />
 
 
-
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonPercent"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
+
+
         android:layout_height="@dimen/button_height"
-
-
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButPercent"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_one"
-        app:layout_constraintLeft_toLeftOf="@id/ButtonC"
-        app:layout_constraintTop_toBottomOf="@id/ButtonSeven"
-        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <Button
+        android:theme="@style/MyMaterialButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/ButtonC"
+        app:layout_constraintTop_toBottomOf="@id/ButtonSeven" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonZero"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
+
+
         android:layout_height="@dimen/button_height"
-
-
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButZero"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_two"
+
+        android:theme="@style/MyMaterialButton"
         app:layout_constraintLeft_toLeftOf="@id/ButtonOpenS"
         app:layout_constraintTop_toTopOf="@id/ButtonPercent" />
-    <Button
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonPoint"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
+
+
         android:layout_height="@dimen/button_height"
-
-
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButPoint"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_two"
+
+        android:theme="@style/MyMaterialButton"
         app:layout_constraintLeft_toLeftOf="@id/ButtonCloseS"
         app:layout_constraintTop_toTopOf="@id/ButtonPercent" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ButtonEqual"
 
+        style="@style/MyMaterialButton"
         android:layout_width="@dimen/button_width"
+
+
         android:layout_height="@dimen/button_height"
-
-
-        android:background="@drawable/custom_button"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:text="@string/ButEqual"
         android:textColor="@color/white"
-
-
         android:textSize="@dimen/text_size_button_two"
+
+        android:theme="@style/MyMaterialButton"
         app:layout_constraintLeft_toLeftOf="@id/ButtonDiv"
         app:layout_constraintTop_toTopOf="@id/ButtonPercent" />
 
