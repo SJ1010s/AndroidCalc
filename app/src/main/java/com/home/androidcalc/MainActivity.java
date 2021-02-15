@@ -14,13 +14,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements ImageSet {
+public class MainActivity extends AppCompatActivity implements ImageSet, TokenableCalc {
 
     private static EditText textIn;
     BaseInputConnection textFieldInputConnection;
     ImageView imageView;
     SharedPreferences getSetting;
     CalcHandler calcHandler;
+    TextView textAnswer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
 
         calcHandler = new CalcHandler();
         initTextIn();
+        initTextAnswer();
         keyboardOff();
         initButtonOne();
         initButtonTwo();
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
         initButtonBack();
         initButtonOpenS();
         initButtonCloseS();
+        initButtonEquals();
         initSettingButton();
 
     }
@@ -59,8 +62,26 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
         textFieldInputConnection = new BaseInputConnection(textIn, true);
     }
 
+    private boolean isOperand(){
+        if(textIn.getText().toString().contains("+")) return true;
+        else if(textIn.getText().toString().contains("-")) return true;
+        else if(textIn.getText().toString().contains("/")) return true;
+        else if(textIn.getText().toString().contains("*")) return true;
+        else return false;
+    }
+
     private void initTextAnswer(){
-        TextView textAnswer = findViewById(R.id.textAnawer);
+        textAnswer = findViewById(R.id.textAnawer);
+    }
+
+    private void startCurrentTextAnswer(){
+        if(isOperand()) {
+            calcHandler.setTextIn(textIn.getText().toString());
+            textAnswer.setText(calcHandler.sendCurrentAnswer());
+        }
+    }
+
+    private void startAnswer(){
         calcHandler.setTextIn(textIn.getText().toString());
         textAnswer.setText(calcHandler.sendAnswer());
     }
@@ -104,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
             @Override
             public void onClick(View v) {
                 textIn.append("1");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -114,6 +136,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
             @Override
             public void onClick(View v) {
                 textIn.append("2");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -124,6 +147,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
             @Override
             public void onClick(View v) {
                 textIn.append("3");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -134,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
             @Override
             public void onClick(View v) {
                 textIn.append("4");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -144,6 +169,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
             @Override
             public void onClick(View v) {
                 textIn.append("5");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -154,6 +180,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
             @Override
             public void onClick(View v) {
                 textIn.append("6");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -164,6 +191,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
             @Override
             public void onClick(View v) {
                 textIn.append("7");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -174,6 +202,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
             @Override
             public void onClick(View v) {
                 textIn.append("8");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -184,6 +213,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
             @Override
             public void onClick(View v) {
                 textIn.append("9");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -194,6 +224,7 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
             @Override
             public void onClick(View v) {
                 textIn.append("0");
+                startCurrentTextAnswer();
             }
         });
     }
@@ -214,7 +245,6 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
             @Override
             public void onClick(View v) {
                 textIn.append("+");
-                initTextAnswer();
             }
         });
     }
@@ -275,7 +305,18 @@ public class MainActivity extends AppCompatActivity implements ImageSet {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                textIn.requestFocus();
                 textFieldInputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL));
+            }
+        });
+    }
+
+    private void initButtonEquals(){
+        Button button = findViewById(R.id.ButtonEqual);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startAnswer();
             }
         });
     }
